@@ -11,7 +11,7 @@ async function checkWeather(){
     var humidShown = document.querySelector('#humidPercentage')
     var windShown = document.querySelector('#windKmph')
 
-    tempShown.innerHTML = data.main['temp']
+    tempShown.innerHTML = `${data.main['temp']}°C`
     cityShown.innerHTML = data.name
     humidShown.innerHTML = `${(data.main['humidity']).toFixed(1)}%`
     windShown.innerHTML = `${(data.wind['speed']*(18/5)).toFixed(1)} km/h`
@@ -38,4 +38,11 @@ async function checkWeather(){
             break;
     }
 }
-document.querySelector('button').onclick = checkWeather
+var buttonElement = document.querySelector('button')
+buttonElement.onclick = checkWeather
+var cityInput = document.querySelector('input')
+cityInput.addEventListener("keydown",function(event){
+    if(event.key === "Enter"){
+        checkWeather
+    }
+})
