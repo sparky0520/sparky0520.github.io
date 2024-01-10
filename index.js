@@ -40,9 +40,10 @@ async function checkWeather(){
 }
 var buttonElement = document.querySelector('button')
 buttonElement.onclick = checkWeather
+
 var cityInput = document.querySelector('input')
 cityInput.addEventListener("keydown",function(event){
     if(event.key === "Enter"){
-        checkWeather
+        checkWeather()
     }
 })
