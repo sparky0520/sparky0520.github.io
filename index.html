@@ -1,181 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Recursive&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <nav id="navbar_flexbox">
-        <div>writings.dev</div>
-        <ul>
-            <li>categories</li>
-            <li>articles</li>
-            <li>about</li>
-        </ul>
-    </nav>
-    <div id="hero">
-        <img src="images/uni.png" alt="ink pot">
-        <div id="title">Writings for Developers</div>
-        <div id="content">Curated collection of articles for busy developers</div>
-    </div>
-    <hr>
-    <ul id="carousel_header_flexbox">
-        <li>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_41_198)">
-            <path d="M6 6H0V0H6V6ZM15 0H9V6H15V0ZM24 0H18V6H24V0ZM6 9H0V15H6V9ZM15 9H9V15H15V9ZM24 9H18V15H24V9ZM6 18H0V24H6V18ZM15 18H9V24H15V18ZM24 18H18V24H24V18Z" fill="#909090"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_41_198">
-            <rect width="24" height="24" fill="white"/>
-            </clipPath>
-            </defs>
-            </svg>
-        </li>
-        <li>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_41_200)">
-                <path d="M0 4.36364H24V0H0V4.36364ZM0 14.1818H24V9.81818H0V14.1818ZM0 24H24V19.6364H0V25.0909V24Z" fill="#909090"/>
-                </g>
-                <defs>
-                <clipPath id="clip0_41_200">
-                <rect width="24" height="24" fill="white"/>
-                </clipPath>
-                </defs>
-                </svg>
-                
-        </li>
-        <li class="carousel_header">JavaScript</li>
-        <li class="carousel_header">DevOps</li>
-        <li class="carousel_header">Cloud</li>
-        <li class="carousel_header">Terraform</li>
-        <li class="carousel_header">Architecture</li>
-        <li class="carousel_header">Scalability</li>
-        <li class="carousel_header">Explainers</li>
-    </ul>
-    <div id="threeByThree">
-        <div class="row">
-            <div class="ele">
-                <div><img src="images/ele1.png" alt="grid1 pic"></div>
-                <div>Build continuous integration pipelines with GitHub Actions</div>
-                <div>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</div>
-                <div>
-                    <div>June 24, 2022</div>
-                    <div>DevOps</div>
-                </div>
-            </div>
-            <div class="ele">
-                <div><img src="images/ele2.png" alt="grid2 pic"></div>
-                <div>Build continuous integration pipelines with GitHub Actions</div>
-                <div>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</div>
-                <div>
-                    <div>June 24, 2022</div>
-                    <div>DevOps</div>
-                </div>
-            </div>
-            <div class="ele">
-                <div><img src="images/ele3.png" alt="grid3 pic"></div>
-                <div>Build continuous integration pipelines with GitHub Actions</div>
-                <div>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</div>
-                <div>
-                    <div>June 24, 2022</div>
-                    <div>DevOps</div>
-                </div>
-            </div>
+    <div class="card">
+        
+        <div class="search">
+            <input type="text" placeholder="Enter City Name" spellcheck="true">
+            <button><img src="images/search.png" alt="Search Button"></button>
         </div>
-        <div class="row">
-            <div class="ele">
-                <div><img src="images/ele4.png" alt="grid4 pic"></div>
-                <div>Build continuous integration pipelines with GitHub Actions</div>
-                <div>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</div>
-                <div>
-                    <div>June 24, 2022</div>
-                    <div>DevOps</div>
-                </div>
-            </div>
-            <div class="ele">
-                <div><img src="images/ele5.png" alt="grid5 pic"></div>
-                <div>Build continuous integration pipelines with GitHub Actions</div>
-                <div>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</div>
-                <div>
-                    <div>June 24, 2022</div>
-                    <div>DevOps</div>
-                </div>
-            </div>
-            <div class="ele">
-                <div><img src="images/ele6.png" alt="grid6 pic"></div>
-                <div>Build continuous integration pipelines with GitHub Actions</div>
-                <div>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</div>
-                <div>
-                    <div>June 24, 2022</div>
-                    <div>DevOps</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="ele">
-                <div><img src="images/ele7.png" alt="grid7 pic"></div>
-                <div>Build continuous integration pipelines with GitHub Actions</div>
-                <div>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</div>
-                <div>
-                    <div>June 24, 2022</div>
-                    <div>DevOps</div>
-                </div>
-            </div>
-            <div class="ele">
-                <div><img src="images/ele8.png" alt="grid8 pic"></div>
-                <div>Build continuous integration pipelines with GitHub Actions</div>
-                <div>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</div>
-                <div>
-                    <div>June 24, 2022</div>
-                    <div>DevOps</div>
-                </div>
-            </div>
-            <div class="ele">
-                <div><img src="images/ele9.png" alt="grid9 pic"></div>
-                <div>Build continuous integration pipelines with GitHub Actions</div>
-                <div>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</div>
-                <div>
-                    <div>June 24, 2022</div>
-                    <div>DevOps</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <ul id="carousel_footer_flexbox">
-        <li>Previous</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>Next</li>
-    </ul>
-    <hr>
-    <div id="footer">
-        <ul>
-            <li>writings.dev</li>
-            <li>by @kamranahmedse</li>
-        </ul>
-        <ul>
-            <li>
-                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 1.89437C19.2641 2.21524 18.4736 2.43244 17.6431 2.52994C18.4906 2.03012 19.1412 1.23843 19.4474 0.295262C18.6545 0.758055 17.7769 1.09497 16.8417 1.27515C16.0942 0.490561 15.0279 0 13.8476 0C11.5815 0 9.74425 1.80798 9.74425 4.03957C9.74425 4.35612 9.78123 4.6628 9.85019 4.95898C6.4386 4.79053 3.41629 3.1834 1.39159 0.739235C1.03899 1.33655 0.836833 2.03012 0.836833 2.76936C0.836833 4.171 1.56146 5.40789 2.6622 6.13232C1.98959 6.11072 1.3568 5.92931 0.803611 5.62633C0.802984 5.64361 0.802984 5.66027 0.802984 5.67662C0.802984 7.63424 2.21745 9.26728 4.09515 9.63813C3.75039 9.73008 3.38808 9.77913 3.01385 9.77913C2.74901 9.77913 2.49169 9.75507 2.24158 9.70817C2.76406 11.3125 4.27882 12.4803 6.07472 12.5127C4.66997 13.5956 2.89977 14.242 0.978499 14.242C0.64784 14.242 0.32157 14.2235 0 14.1852C1.81596 15.332 3.97292 16 6.28941 16C13.8375 16 17.9643 9.84485 17.9643 4.5073C17.9643 4.33298 17.9603 4.15774 17.9524 3.98496C18.7542 3.41511 19.4499 2.70456 19.9997 1.89498L20 1.89437Z" fill="white"/>
-                    </svg>                    
-            </li>
-            <li>Follow @writingsdev</li>
-        </ul>
-    </div>
-</body>
 
+        <div class="weather"><img id="weather_icon" src="/images/clear.png" alt="weather image"></div>
+        
+        <div class="details">
+            <h1 class="temperature">22&deg;C</h1>
+            <h2 class="city">Bengaluru</h2>
+        </div>
+        
+        <div class="atmosphere">
+            <div class="humidity">
+                <img src="/images/humidity.png" alt="humidity image">
+                <div>
+                    <div id="humidPercentage">53%</div>
+                    <div>humidity</div>
+                </div>
+            </div>
+            <div class="wind">
+                <img src="/images/wind.png" alt="wind image">
+                <div>
+                    <div id="windKmph">5.66 km/h</div>
+                    <div>Wind Speed</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
 </html>
