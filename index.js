@@ -1,49 +1,47 @@
-const apiKey = "c9c8b539744f9795f6c9dac4bc609495"
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=c9c8b539744f9795f6c9dac4bc609495"
+var inputElement = document.querySelector('#text-field-input');
+var addButton = document.querySelector('#text-field-button');
 
-async function checkWeather(){
-    var city = document.querySelector('input').value    
-    const response = await fetch(apiUrl+`&q=${city}`)
-    var data = await response.json()
+listContainer = document.getElementById('list-container')
 
-    var tempShown = document.querySelector('.temperature')
-    var cityShown = document.querySelector('.city')
-    var humidShown = document.querySelector('#humidPercentage')
-    var windShown = document.querySelector('#windKmph')
-
-    tempShown.innerHTML = `${data.main['temp']}°C`
-    cityShown.innerHTML = data.name
-    humidShown.innerHTML = `${(data.main['humidity']).toFixed(1)}%`
-    windShown.innerHTML = `${(data.wind['speed']*(18/5)).toFixed(1)} km/h`
-    console.log(data.weather[0]['main'])
-    var weatherShown = document.querySelector('#weather_icon')
-    switch (data.weather[0]['main']){
-        case "Clear": 
-            weatherShown.src ="/images/clear.png"
-            break;
-        case "Clouds": 
-            weatherShown.src ="/images/clouds.png"
-            break;
-        case "Drizzle":
-            weatherShown.src ="/images/drizzle.png"
-            break;
-        case "Mist":
-            weatherShown.src ="/images/mist.png"
-            break;
-        case "Rain":
-            weatherShown.src ="/images/rain.png"
-            break;
-        case "Snow": 
-            weatherShown.src ="/images/snow.png"
-            break;
-    }
-}
-var buttonElement = document.querySelector('button')
-buttonElement.onclick = checkWeather
-
-var cityInput = document.querySelector('input')
-cityInput.addEventListener("keydown",function(event){
-    if(event.key === "Enter"){
-        checkWeather()
+addButton.onclick = display
+inputElement.addEventListener('keydown',function(event){
+    var key = event.key
+    if(key === "Enter"){
+        display( )
     }
 })
+
+function display() {
+    var task = inputElement.value
+    var li = document.createElement("li")
+    li.textContent = task
+    if (task === "") {
+        window.alert("Cannot add empty task !")
+    } else {
+        // Inserting new li when add button is clicked
+        listContainer.insertBefore(li, listContainer.getElementsByTagName('li')[0])
+        let spanEle = document.createElement('span')
+        spanEle.innerHTML = "\u00d7"
+        li.appendChild(spanEle)
+    }
+    inputElement.value = ""
+    saveData()
+}
+
+listContainer.addEventListener("click",function(ele){
+    if(ele.target.tagName == "LI"){
+        ele.target.classList.toggle("checked")
+        saveData()
+    }else if(ele.target.tagName == "SPAN"){
+        ele.target.parentNode.remove()
+        saveData()
+    }
+})
+
+function saveData(){
+    localStorage.setItem("data",listContainer.innerHTML)
+}
+function showData(){
+    listContainer.innerHTML = localStorage.getItem("data")
+}
+showData()
