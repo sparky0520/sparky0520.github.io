@@ -9,6 +9,7 @@
 body{
     background: linear-gradient(135deg, #153677, #4e085f);
     background-attachment: fixed;
+    max-width: 100vw;
 }
 .container{
     width: 33.75rem;
