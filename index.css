@@ -37,7 +37,6 @@ body{
     justify-content: space-between;
     background: #edeef0;
     padding-left: 1.25rem;
-    margin-left: 1.25rem;
     border-radius: 1.875rem;
     margin-bottom: 1.5625rem;
 }
@@ -49,6 +48,7 @@ body{
     flex: 1;
 }
 .text-field > button{
+    flex: 1;
     border: none;
     outline: none;
     padding: 1rem 3.125rem;
@@ -57,6 +57,14 @@ body{
     font-size: 1rem;
     cursor: pointer;
     border-radius: 2.5rem;
+}
+#new_list{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#new_task{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 ul li{
     font-size: 1.0625rem;
