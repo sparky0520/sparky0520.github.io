@@ -66,12 +66,17 @@ body{
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+.category{
+    font-weight: bold;
+    margin: 1rem 0;
+}
 ul li{
     font-size: 1.0625rem;
     padding: 0.75rem 0.5rem 0.75rem 3.125rem;
     position: relative;
     user-select: none;
     cursor: pointer;
+    font-weight: normal;
 }
 ul li::before{
     content: '';
@@ -84,6 +89,7 @@ ul li::before{
     background-size: cover;
     top: 0.5rem;
     left: 0.5rem;
+    font-weight: normal;
 }
 ul li.checked{
     color: #555;
