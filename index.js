@@ -1,5 +1,4 @@
 window.alert("Welcome to Notes app update 1.1  ;)")
-
 var inputElement = document.querySelector('#text-field-input');
 var addButton = document.querySelector('#new_task');
 var newList = document.getElementById('new_list')
