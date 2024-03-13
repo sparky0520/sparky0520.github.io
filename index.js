@@ -1,72 +1,63 @@
-window.alert("Welcome to Notes app update 1.1  ;)")
-var inputElement = document.querySelector('#text-field-input');
-var addButton = document.querySelector('#new_task');
-var newList = document.getElementById('new_list')
+import express from 'express';
+import bodyParser from 'body-parser'
+import {GoogleGenerativeAI} from "@google/generative-ai";
 
-listContainer = document.getElementById('list-container')
+const app = express()
+const PORT =3000;
 
-inputElement.addEventListener('keydown', function (event) {
-    var key = event.key
-    if (key === "Enter") {
-        display()
+app.use(express.static("public"))
+app.use(bodyParser.urlencoded({extended:true}))
+
+
+var message = ""
+
+
+
+
+//Generative AI - code
+
+// Access your API key as an environment variable (see "Set up your API key" above)
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+
+async function run(user_input) {
+  // For text-only input, use the gemini-pro model
+  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+
+  const prompt = String(user_input);
+
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = response.text();
+  console.log(text);
+  message = text; 
+}
+
+
+
+
+
+app.get("/",(req,res) => {
+    res.render('index.ejs',{
+        output: message
+    })
+})
+
+app.post("/submit",async (req,res) => {
+    console.log(req.body)
+    const user_input = req.body['prompt']
+    try{
+        await run(user_input);
+        res.redirect("/");
+    }catch(error){
+        console.log(error);
+        res.status(500).send("Internal Server Error")
     }
 })
 
-newList.onclick = newCategory
-
-function newCategory() {
-    var task = inputElement.value
-    var ul = document.createElement('ul')
-    ul.classList.add("category")
-    ul.textContent = inputElement.value
-    if (task === "") {
-        window.alert("Cannot add empty task !")
-    } else {
-        // Inserting ul element 
-        listContainer.insertBefore(ul, listContainer.querySelectorAll('ul')[0])
-        //listContainer.appendChild(ul)
-        let spanEle = document.createElement('span')
-        spanEle.innerHTML = "\u00d7"
-        ul.appendChild(spanEle)
-    }
-    inputElement.value = ""
-    saveData()
-}
-
-addButton.onclick = display
-
-function display() {
-    var categories = document.querySelector(".category")
-    var task = inputElement.value
-    var li = document.createElement("li")
-    li.textContent = task
-    if (task === "") {
-        window.alert("Cannot add empty task !")
-    } else {
-        // Inserting new li when add button is clicked
-        categories.insertBefore(li, categories.querySelectorAll('li')[0])
-        let spanEle = document.createElement('span')
-        spanEle.innerHTML = "\u00d7"
-        li.appendChild(spanEle)
-    }
-    inputElement.value = ""
-    saveData()
-}
-
-listContainer.addEventListener("click", function (ele) {
-    if (ele.target.tagName == "LI") {
-        ele.target.classList.toggle("checked")
-        saveData()
-    } else if (ele.target.tagName == "SPAN") {
-        ele.target.parentNode.remove()
-        saveData()
-    }
-})
-
-function saveData() {
-    localStorage.setItem("data", listContainer.innerHTML)
-}
-function showData() {
-    listContainer.innerHTML = localStorage.getItem("data")
-}
-showData()
+app.listen(PORT, (error) =>{ 
+    if(!error) 
+        console.log("Server is Successfully Running, and App is listening on port "+ PORT) 
+    else 
+        console.log("Error occurred, server can't start", error); 
+    } 
+); 
